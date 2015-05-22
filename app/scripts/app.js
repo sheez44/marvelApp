@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('marvelappApp', [
+  .module('marvelApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
