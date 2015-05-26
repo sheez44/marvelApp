@@ -1,23 +1,15 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="media">
+  <div class="media-left">
+    <a href="http://www.imdb.com/title/tt1632701/?ref_=fn_al_tt_1">
+      <img class="media-object" ng-src="{{image}}" alt="{{title}}">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{title}}</h4>
+    <p>{{plot}}</p>  
+    <p>Imdb rating: {{imdb}}</p>
+  </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<input type="text" ng-model="movie.title" placeholder="Enter a movie/series title">
+<input type="submit" ng-click="fetchMovie(movie.title)">

@@ -10,13 +10,17 @@
 angular.module('marvelApp')
   .controller('MainCtrl', function ($scope, marvelFactory) {
 
-  	marvelFactory.success(function(data){
-  		$scope.characters = data;
-  		console.log(data);
-  	});
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+
+  $scope.fetchMovie = function(movie) {
+      marvelFactory.getAMovie(movie).then(function(data) {
+        $scope.title = data.data.Title;
+        $scope.plot = data.data.Plot;
+        $scope.image = data.data.Poster;
+        $scope.imdb = data.data.imdbRating;
+      });
+  };
+  	
+  $scope.fetchMovie('suits');
+
+});
