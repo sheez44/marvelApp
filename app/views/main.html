@@ -1,15 +1,19 @@
-<div class="media">
+<div class="search"></div><label>Filter: <input ng-model="searchText"></label>
+</div>
+
+<div class="media" ng-repeat="movie in movies | filter:searchText | orderBy: '-imdbRating'">
   <div class="media-left">
     <a href="http://www.imdb.com/title/tt1632701/?ref_=fn_al_tt_1">
-      <img class="media-object" ng-src="{{image}}" alt="{{title}}">
+      <img class="media-object" ng-src="{{movie.Poster}}" alt="{{movie.title}}">
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">{{title}}</h4>
-    <p>{{plot}}</p>  
-    <p>Imdb rating: {{imdb}}</p>
+    <h4 class="media-heading">{{movie.Title}}<span class="removeBtn" ng-click="removeMovie($index)">X</span></h4> 
+    <p>{{movie.Plot}}</p>  
+    <p>Imdb rating: {{movie.imdbRating}}</p>
   </div>
 </div>
-
+<div class="searchMovie">
 <input type="text" ng-model="movie.title" placeholder="Enter a movie/series title">
 <input type="submit" ng-click="fetchMovie(movie.title)">
+</div>
